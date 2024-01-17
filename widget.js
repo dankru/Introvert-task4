@@ -35,8 +35,8 @@ widgetTestGoogleIt = function () {
             console.log(value);
             if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
                 $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
-                    window.open('http://tetete.com/?q=' + value);
-                    window.open('https://tetee.ru/search/?text=' + value);
+                    window.open('http://letmegooglethat.com/?q=' + value);
+                    window.open('https://yandex.ru/search/?text=' + value);
                 });
             }
         })
