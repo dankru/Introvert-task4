@@ -16,14 +16,27 @@ widgetTestGoogleIt = function () {
         // add to phone
         $('.js-control-phone').on('click', function () {
             let value = $(this).children('input').attr('value');
-            if ($('.tips__inner > .custom-item').length === 0) {
-                $('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
-                    window.open('http://letmegooglethat.com/?q='+value);
-                    window.open('https://yandex.ru/search/?text='+value);
+            if ($(this).parent().parent().find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
+                $(this).parent().parent().find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
+                    window.open('http://letmegooglethat.com/?q=' + value);
+                    window.open('https://yandex.ru/search/?text=' + value);
                 });
             }
         });
 
+
+        // add to email
+        $('.js-linked-with-actions').each(function () {
+            $(this).attr('data-pei-code') === 'email'
+        }).on('click', function () {
+            let value = $(this).children('.control-wrapper').children('input').attr('value');
+            if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
+                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
+                    window.open('http://letmegooglethat.com/?q=' + value);
+                    window.open('https://yandex.ru/search/?text=' + value);
+                });
+            }
+        })
     };
 
     // вызывается один раз при инициализации виджета, в этой функции мы загружаем нужные данные, стили и.т.п
