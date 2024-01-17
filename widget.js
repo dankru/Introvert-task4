@@ -13,27 +13,30 @@ widgetTestGoogleIt = function () {
 
     // вызывается каждый раз при переходе на страницу
     this.render = function () {
+
         // add to phone
-        $('.js-control-phone').on('click', function () {
-            let value = $(this).children('input').attr('value');
-            if ($(this).parent().parent().find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
-                $(this).parent().parent().find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
-                    window.open('http://letmegooglethat.com/?q=' + value);
-                    window.open('https://yandex.ru/search/?text=' + value);
-                });
-            }
-        });
-
-
-        // add to email
-        $('.js-linked-with-actions').each(function () {
-            $(this).attr('data-pei-code') === 'email'
+        $('.js-linked-with-actions').filter(function () {
+            return $(this).attr('data-pei-code') === 'phone'
         }).on('click', function () {
-            let value = $(this).children('.control-wrapper').children('input').attr('value');
+            let value = $(this).children('.js-control-phone').children('input').attr('value');
             if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
                 $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
                     window.open('http://letmegooglethat.com/?q=' + value);
                     window.open('https://yandex.ru/search/?text=' + value);
+                });
+            }
+        })
+
+        // add to email
+        $('.js-linked-with-actions').filter(function () {
+            return $(this).attr('data-pei-code') === 'email'
+        }).on('click', function () {
+            let value = $(this).children('.control-wrapper').children('input').attr('value');
+            console.log(value);
+            if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
+                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
+                    window.open('http://tetete.com/?q=' + value);
+                    window.open('https://tetee.ru/search/?text=' + value);
                 });
             }
         })
