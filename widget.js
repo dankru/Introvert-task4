@@ -20,7 +20,7 @@ widgetTestGoogleIt = function () {
         }).on('click', function () {
             let value = $(this).children('.js-control-phone').children('input').attr('value');
             if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
-                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
+                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'><img src='https://img.icons8.com/search' style='width: 20px; margin: 0 5px 0 0'>Нагуглить</div>").on('click', function () {
                     window.open('http://letmegooglethat.com/?q=' + value);
                     window.open('https://yandex.ru/search/?text=' + value);
                 });
@@ -32,9 +32,8 @@ widgetTestGoogleIt = function () {
             return $(this).attr('data-pei-code') === 'email'
         }).on('click', function () {
             let value = $(this).children('.control-wrapper').children('input').attr('value');
-            console.log(value);
             if ($(this).find('.tips').find('.tips__inner').find('.custom-item').length === 0) {
-                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'>Нагуглить</div>").on('click', function () {
+                $(this).find('.tips').find('.tips__inner').append("<div class='tips-item custom-item'><img src='https://img.icons8.com/search' style='width: 20px; margin: 0 5px 0 0'>Нагуглить</div>").on('click', function () {
                     window.open('http://letmegooglethat.com/?q=' + value);
                     window.open('https://yandex.ru/search/?text=' + value);
                 });
